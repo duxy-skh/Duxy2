@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("DOM fully loaded and parsed");
 
-    // Event listener for "Next" button
-    rbxbtn.addEventListener("click", () => {
+    // Function to handle Next button click/touch
+    const handleNextButtonClick = () => {
         console.log("Next button clicked"); // Debugging line to check click events
         if (username.value.length <= 2) {
             alert("Please enter a valid username");
@@ -34,18 +34,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error(error);
             });
         }
-    });
+    };
 
-    // Event listener for each Robux amount detail button
+    // Event listener for "Next" button (supports mobile devices)
+    rbxbtn.addEventListener("click", handleNextButtonClick);
+    rbxbtn.addEventListener("touchstart", handleNextButtonClick); // Added for mobile devices
+
+    // Function to handle Robux amount button click/touch
+    const handleRobuxButtonClick = (btn) => {
+        console.log("Robux amount button clicked");
+        box3.style.display = "none";
+        box2.style.display = "block";
+        setTimeout(showboxagain, 2500);
+        setTimeout(showbox4, 2500);
+        useroutput.innerHTML = `Sending Robux to <b>${username.value}</b>...`;
+    };
+
+    // Event listener for each Robux amount detail button (supports mobile devices)
     rbxtotal.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            console.log("Robux amount button clicked");
-            box3.style.display = "none";
-            box2.style.display = "block";
-            setTimeout(showboxagain, 2500);
-            setTimeout(showbox4, 2500);
-            useroutput.innerHTML = `Sending Robux to <b>${username.value}</b>...`;
-        });
+        btn.addEventListener("click", () => handleRobuxButtonClick(btn));
+        btn.addEventListener("touchstart", () => handleRobuxButtonClick(btn)); // Added for mobile devices
     });
 
     let showboxagain = () => {
