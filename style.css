@@ -344,8 +344,6 @@ button.getrbx {
 button.getrbx:hover {
     background-color: #008F57; /* Hover color for better UX */
 }
-# CSS update to make the thumbnail image appear as a circle with a stroke and light shadow
-thumbnail_css_update = """
 /* Styling for the thumbnail image */
 .thumbnail-container img {
     width: 150px; /* Set a fixed size for the thumbnail */
@@ -356,13 +354,4 @@ thumbnail_css_update = """
     object-fit: cover; /* Ensure the image fits well within the circular frame */
     display: block;
     margin: 0 auto; /* Center the image */
-}
-"""
-
-# Append the new CSS code for the thumbnail to style.css
-with open(style_css_path, "a") as style_css_file:
-    style_css_file.write(thumbnail_css_update)
-
-# Create a new archive with updated CSS changes
-shutil.make_archive("/mnt/data/updated_web_files_thumbnail_style", 'zip', "/mnt/data")
 }
