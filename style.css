@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@520&amp;family=Mochiy+Pop+One&amp;family=Nunito:wght@200&amp;family=Poppins:wght@400;600;700;900&amp;family=REM:wght@300&amp;family=Varela+Round&amp;display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +7,7 @@
   font-family: "Kumbh Sans", sans-serif;
 }
 
+/* Logo styling */
 .logo {
   width: 30px;
   display: flex;
@@ -17,14 +19,15 @@
   margin-right: 18px;
   font-size: 25px;
 }
+
+/* Navbar styling */
 nav {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #dee1e3;
-  border: solid #c7cbce;
-  border-width: 0 0 1px;
+  border-bottom: 1px solid #c7cbce;
   padding: 0 40px;
 }
 
@@ -33,18 +36,22 @@ nav ul {
   display: flex;
 }
 
+nav ul li {
+  margin-left: 30px;
+}
+
+/* General body styling */
 body {
   background-color: #f2f4f5;
   color: #393b3d;
 }
+
+/* General image styling */
 img {
   width: 100%;
 }
 
-ul li {
-  margin-left: 30px;
-}
-
+/* Middle banner styling */
 .middle {
   width: 100%;
   margin: 30px auto;
@@ -70,19 +77,22 @@ ul li {
   margin-bottom: 10px;
   font-size: 35px;
 }
+
 .middle p {
   font-size: 17px;
 }
 
+/* Paragraph styling */
 body .para {
   font-size: 10px;
   font-weight: 500;
-  margin-top: 50px;
   color: #606162;
   text-align: center;
   width: 100%;
   margin: 50px auto;
 }
+
+/* Box container styling for input and content */
 .box_con {
   margin: 0 auto;
   background-color: #fff;
@@ -91,10 +101,12 @@ body .para {
   font-size: 20px;
   padding: 20px;
   border: solid #c7cbce;
-  border-width: 1px 1px 1px;
+  border-width: 1px;
   position: relative; /* Ensure proper stacking context */
-  z-index: 10; /* High stacking order for clickability */
+  z-index: 10; /* High stacking order to ensure clickability */
 }
+
+/* Input field styling */
 input {
   padding: 11px 15px;
   border: none;
@@ -104,19 +116,22 @@ input {
   font-size: 17px;
 }
 
+/* Button styling */
 button {
   background: #393b3d;
   outline: none;
   border: none;
   color: #fff;
   padding: 8px 10px;
-
   border-radius: 5px;
   font-weight: 600;
   letter-spacing: 1px;
   font-size: 14px;
   cursor: pointer;
   margin-top: 30px;
+  position: relative; /* Ensure stacking context */
+  z-index: 10; /* Ensure buttons are clickable */
+  touch-action: manipulation; /* Improve touch responsiveness */
 }
 
 button.getrbx {
@@ -127,20 +142,13 @@ button.getrbx:hover {
   background-color: #008f57; /* Hover color for better UX */
 }
 
-.box2 {
+/* Hidden boxes styling */
+.box2, .box3, .box4 {
   display: none;
-  z-index: 1; /* Lower z-index for inactive boxes */
+  z-index: 1; /* Lower z-index to avoid overlapping issues */
 }
 
-.box3 {
-  display: none;
-  z-index: 1; /* Lower z-index for inactive boxes */
-}
-.box4 {
-  display: none;
-  z-index: 1; /* Lower z-index for inactive boxes */
-}
-
+/* Container styling */
 .container {
   display: flex;
   flex-direction: column;
@@ -148,6 +156,7 @@ button.getrbx:hover {
   border-radius: 8px;
 }
 
+/* Row styling for details */
 .row {
   display: flex;
   align-items: center;
@@ -157,6 +166,8 @@ button.getrbx:hover {
 .row:not(.row:last-child) {
   border-bottom: 1px solid #bdbebe;
 }
+
+/* Pricing and details styling */
 .price {
   font-size: 20px;
   font-weight: 700;
@@ -179,14 +190,12 @@ span {
   font-weight: 800;
   color: rgba(0, 0, 0, 0.6);
 }
-img {
-  width: 100%;
-}
 
 h3 {
   font-size: 32px;
   margin-bottom: 21px;
 }
+
 .details {
   border: 1px solid #b8b8b8;
   border-radius: 8px;
@@ -198,6 +207,19 @@ h3 {
   transition: 0.3s;
 }
 
+/* Thumbnail styling for display */
+.thumbnail-container img {
+  width: 150px; /* Set a fixed size for the thumbnail */
+  height: 150px; /* Keep the width and height equal to maintain the circle */
+  border-radius: 50%; /* Make the image a perfect circle */
+  border: 3px solid #393b3d; /* Add a stroke to the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a light shadow */
+  object-fit: cover; /* Ensure the image fits well within the circular frame */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+/* Loader cube animation styling */
 .folding {
   margin: 20px auto;
   width: 100px;
@@ -215,6 +237,7 @@ h3 {
   background-color: #fff;
   transform: rotateZ(87deg);
 }
+
 .folding .sk-cube {
   float: left;
   width: 50%;
@@ -259,29 +282,23 @@ h3 {
   animation-delay: 0.9s;
 }
 
+/* Keyframes for loader animation */
 @keyframes sk-foldCubeAngle {
-  0%,
-  10% {
+  0%, 10% {
     transform: perspective(140px) rotateX(-180deg);
     opacity: 0;
   }
-  25%,
-  75% {
+  25%, 75% {
     transform: perspective(140px) rotateX(0deg);
     opacity: 1;
   }
-  90%,
-  100% {
+  90%, 100% {
     transform: perspective(140px) rotateY(180deg);
     opacity: 0;
   }
 }
-@media (max-width: 400px) {
-  nav {
-    padding: 0 5px;
-  }
-}
 
+/* Media Queries for Responsive Design */
 @media (max-width: 1042px) {
   .middle,
   .box_con,
@@ -307,37 +324,8 @@ h3 {
   }
 }
 
-@media (max-width: 373px) {
-  .logo span {
-    display: none;
-  }
-  nav {
-    padding: 0px;
-  }
-}
-
 @media (max-width: 442px) {
-
   nav {
     padding: 0px 20px;
   }
-}
-
-@media (max-width: 396px) {
-
-  nav {
-    padding: 0px 10px;
-  }
-}
-
-/* Styling for the thumbnail image */
-.thumbnail-container img {
-  width: 150px; /* Set a fixed size for the thumbnail */
-  height: 150px; /* Keep the width and height equal to maintain the circle */
-  border-radius: 50%; /* Make the image a perfect circle */
-  border: 3px solid #393b3d; /* Add a stroke to the image */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a light shadow */
-  object-fit: cover; /* Ensure the image fits well within the circular frame */
-  display: block;
-  margin: 0 auto; /* Center the image */
 }
