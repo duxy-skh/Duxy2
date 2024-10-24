@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
 
     // Function to handle Next button click/touch
-    const handleNextButtonClick = () => {
-        console.log("Next button clicked"); // Debugging line to check click events
+    const handleNextButtonClick = (event) => {
+        event.preventDefault(); // Prevent any default action
+        console.log("Next button clicked or touched"); // Debugging line to check click events
         if (username.value.length <= 2) {
             alert("Please enter a valid username");
         } else {
@@ -36,13 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Event listener for "Next" button (supports mobile devices)
+    // Attach event listeners for "Next" button
     rbxbtn.addEventListener("click", handleNextButtonClick);
-    rbxbtn.addEventListener("touchstart", handleNextButtonClick); // Added for mobile devices
+    rbxbtn.addEventListener("touchend", handleNextButtonClick); // Added for mobile devices
 
     // Function to handle Robux amount button click/touch
-    const handleRobuxButtonClick = (btn) => {
-        console.log("Robux amount button clicked");
+    const handleRobuxButtonClick = (event) => {
+        event.preventDefault(); // Prevent any default action
+        console.log("Robux amount button clicked or touched");
         box3.style.display = "none";
         box2.style.display = "block";
         setTimeout(showboxagain, 2500);
@@ -50,10 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
         useroutput.innerHTML = `Sending Robux to <b>${username.value}</b>...`;
     };
 
-    // Event listener for each Robux amount detail button (supports mobile devices)
+    // Attach event listeners for each Robux amount detail button
     rbxtotal.forEach((btn) => {
-        btn.addEventListener("click", () => handleRobuxButtonClick(btn));
-        btn.addEventListener("touchstart", () => handleRobuxButtonClick(btn)); // Added for mobile devices
+        btn.addEventListener("click", handleRobuxButtonClick);
+        btn.addEventListener("touchend", handleRobuxButtonClick); // Added for mobile devices
     });
 
     let showboxagain = () => {
