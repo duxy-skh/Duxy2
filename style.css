@@ -355,3 +355,30 @@ button.getrbx:hover {
     display: block;
     margin: 0 auto; /* Center the image */
 }
+/* Add this to style.css */
+
+/* Make sure button is always clickable */
+button.getrbx {
+    cursor: pointer;
+    position: relative;
+    z-index: 10; /* Make sure it stays above other elements */
+}
+
+/* Box styles to ensure no overlap on mobile */
+.box_con, .box2, .box3, .box4 {
+    position: relative;
+    z-index: 5;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .box {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    button.getrbx {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
