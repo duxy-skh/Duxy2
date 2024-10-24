@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const rbxtotal = document.querySelectorAll(".details");
     const username = document.querySelector(".username");
     const useroutput = document.querySelector(".useroutput");
+    const usernameDisplay = document.getElementById('usernameDisplay');
     let thumbnailUrl = ""; // Store thumbnail URL
 
     console.log("DOM fully loaded and parsed");
@@ -73,8 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to fetch thumbnail URL
     async function fetchThumbnail(username) {
         console.log("Fetching thumbnail for username:", username);
-        // Replace '192.168.x.x' with your computer's local IP address to allow access from mobile devices
-        const response = await fetch('http://192.168.x.x:5000/get_thumbnail', {
+        const response = await fetch('http://127.0.0.1:5000/get_thumbnail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
