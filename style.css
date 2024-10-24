@@ -316,3 +316,31 @@ h3 {
     padding: 0px 10px;
   }
 }
+
+/* Ensure box_con has a higher stacking context to be clickable */
+.box_con {
+    position: relative;
+    background-color: #fff;
+    min-height: 163px;
+    width: 70%;
+    font-size: 20px;
+    padding: 20px;
+    border: solid #c7cbce;
+    border-width: 1px 1px 1px;
+    z-index: 10; /* High stacking order */
+}
+
+/* Lower z-index for other hidden boxes */
+.box2, .box3, .box4 {
+    z-index: 1; /* Ensure these don't overlap box_con when inactive */
+}
+
+/* Ensure the button is clickable with pointer cursor */
+button.getrbx {
+    cursor: pointer;
+}
+
+/* Add additional styling to make sure button stands out when active */
+button.getrbx:hover {
+    background-color: #008F57; /* Hover color for better UX */
+}
